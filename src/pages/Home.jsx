@@ -13,8 +13,8 @@ import {motion} from "framer-motion"
 import { validLink } from '../components/Regex';
 
 function Home() {
-  const target ="http://165.232.152.255:8080/scanner/target/"
-  const check = "http://165.232.152.255:8080/api/token/verify/"
+  const target ="http://64.227.128.246:8080/scanner/target/"
+  const check = "http://64.227.128.246:8080/api/token/verify/"
    let {authTokens, logoutUser} = useContext(AuthContext);
   const [loading,setLoading]=useState(false)
   const [url,setUrl]=useState("")

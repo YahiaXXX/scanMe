@@ -128,7 +128,7 @@ export default function Risks() {
     ],
   }
   const {id} = useParams()
-  const url =`http://165.232.152.255:8080/scanner/target/${id}/risks/`
+  const url =`http://64.227.128.246:8080/scanner/target/${id}/risks/`
   const [dataServer,setDataServer]=useState([]);
   const [loading,setLoading]=useState(false)
   const [dataPie,setDataPie]=useState({

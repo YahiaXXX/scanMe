@@ -196,7 +196,7 @@ const getWord = (str)=>{
 
 }
   const {authTokens} = useContext(AuthContext)
-  const homeUrl="http://165.232.152.255:8080/scanner/my_home"
+  const homeUrl="http://64.227.128.246:8080/scanner/my_home"
   let bool = screenSize > 700;
   const [gaugePer,setGaugePer]=useState(
     {

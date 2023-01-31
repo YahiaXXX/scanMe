@@ -16,8 +16,8 @@ export const AuthProvider = ({children}) => {
     let [loading, setLoading] = useState(false)
     const [emailErr,setEmailErr]=useState(false)
     const [passwordErr,setPasswordErr]=useState(false)
-    const urlLogin ="http://165.232.152.255:8080/api/token/"
-    const urlRefresh = "http://165.232.152.255:8080/api/token/refresh/"
+    const urlLogin ="http://64.227.128.246:8080/api/token/"
+    const urlRefresh = "http://64.227.128.246:8080/api/token/refresh/"
 
     const validate=(email,password)=>{
         if (!validEmail.test(email)) {
