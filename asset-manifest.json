@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f9fa7341.css",
+    "main.js": "/static/js/main.2a4a1370.js",
+    "static/media/Intersect.png": "/static/media/Intersect.5a6195f9b25b30be3b42.png",
+    "static/media/Union.png": "/static/media/Union.ef6bb6f5f1cdd5e6daab.png",
+    "static/media/curved14.jpg": "/static/media/curved14.12c9ea54425c4f1bc1d7.jpg",
+    "static/media/hero.jpg": "/static/media/hero.71ee1d1cc8196ed2126b.jpg",
+    "static/media/heroof.png": "/static/media/heroof.c7e18ec350a79d5d141a.png",
+    "static/media/logo-google.svg": "/static/media/logo-google.8af2d024521c8b7fa50d4109bd9b6fe2.svg",
+    "static/media/logo-apple.svg": "/static/media/logo-apple.36a0d6daf79382e1541b2e2b8ff10cdd.svg",
+    "static/media/logo-facebook.svg": "/static/media/logo-facebook.ff8a21a7175209695eca8af53a1edfdf.svg",
+    "index.html": "/index.html",
+    "static/media/search.svg": "/static/media/search.44144c63f1114bd734334869ead5c143.svg",
+    "main.f9fa7341.css.map": "/static/css/main.f9fa7341.css.map",
+    "main.2a4a1370.js.map": "/static/js/main.2a4a1370.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9fa7341.css",
+    "static/js/main.2a4a1370.js"
+  ]
+}
