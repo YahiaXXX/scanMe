@@ -30,15 +30,17 @@ function Home() {
   }
  
   //  useEffect(()=>{
+  //   console.log(validLink.test("www.esi.dz"));
+  //   console.log(validIp.test("64.227.128.246"));
 
-  //  checkToken();
+    
 
-  //  })
+  //   },[])
 
   const handleScan= async () =>{
 
     
-    if(url!=="" && (validLink.test(url) || validIp.test(url)) ){
+    if(validLink.test(url) || validIp.test(url) ){
       setLoading(true);
       setUrls(url)
 
