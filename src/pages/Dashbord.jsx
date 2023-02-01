@@ -129,10 +129,10 @@ export const Card2 = ({ tech, color }) => {
     <div
       className={`h-full rounded-md hover:bg-opacity-30 bg-opacity-60 justify-center gap-4  items-center flex flex-row w-full`}
     >
-      <p className=" text-xl font-semibold ">
+      <p className=" dark:text-slate-100 text-xl font-semibold ">
         <BsLightningCharge />
       </p>
-      <p className=" text-[20px] font-medium ">{tech}</p>
+      <p className=" text-[20px] font-medium dark:text-slate-100 ">{tech}</p>
     </div>
   </div>
 )};

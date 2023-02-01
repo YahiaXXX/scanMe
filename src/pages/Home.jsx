@@ -1,6 +1,7 @@
 import React,{useEffect,useState,useContext} from 'react'
 import styles from '../style'
 import hero from "../assets/heroof.png"
+import hero2 from "../assets/hero2.png"
 import { useStateContext } from '../contexts/ContextProvider'
 import {Spinner} from "../components/spinner/Spinner" ;
 import Loader from "../components/Loader"
@@ -10,7 +11,7 @@ import AuthContext from '../contexts/AuthContext';
 import {Link} from "react-router-dom"
 import {BsArrowRightCircle} from "react-icons/bs"
 import {motion} from "framer-motion"
-import { validLink } from '../components/Regex';
+import { validLink,validIp } from '../components/Regex';
 
 function Home() {
   const target ="http://64.227.128.246:8080/scanner/target/"
@@ -18,7 +19,7 @@ function Home() {
    let {authTokens, logoutUser} = useContext(AuthContext);
   const [loading,setLoading]=useState(false)
   const [url,setUrl]=useState("")
-  const {currentColor,setUrls} = useStateContext();
+  const {currentColor,setUrls,currentMode} = useStateContext();
   const [id,setId] = useState(null);
   const [err,setErr]=useState(false)
   const [scanType,setScanType]=useState("scan_all")
@@ -36,8 +37,9 @@ function Home() {
 
   const handleScan= async () =>{
 
-    setLoading(true);
-    if(url!=="" && validLink.test(url) ){
+    
+    if(url!=="" && (validLink.test(url) || validIp.test(url)) ){
+      setLoading(true);
       setUrls(url)
 
       let res = await axios.post(target,{
@@ -62,6 +64,7 @@ function Home() {
     }
     else{
       setErr(true)
+      console.log("link pas valid")
     } 
 
   }
@@ -131,10 +134,10 @@ function Home() {
 </motion.div>
  }
     
-     {err && <div className=' flex justify-center items-center mt-4  w-full' >
+     {err && <motion.div transition={{ type:"spring", bounce:60}} animate={{y:10}} className=' flex justify-center items-center mt-4  w-full' >
       <p className=' text-[15px] text-red-600' >Insert a valid link , please!</p>
 
-     </div>  } 
+     </motion.div>  } 
       
       
     
@@ -145,7 +148,7 @@ function Home() {
     <div className='flex-1 md:flex hidden ' ></div>
 
     <div className={` flex-[1.7] flex ${styles.flexCenter} md:my-0 my-10 relative`} >
-      <img src={hero} alt="billing" className="w-[100%] h-[100%] relative" />
+      <img src={currentMode==="light" ? hero :hero2 } alt="billing" className="w-[100%] h-[100%] relative" />
       
     </div>
     

@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import {FiTarget} from "react-icons/fi"
 import {BiSearchAlt} from "react-icons/bi"
 import {AiOutlineHome} from "react-icons/ai"
+import hexToRgba from "hex-to-rgba";
 
 
 
@@ -93,11 +94,7 @@ else{setActiveMenu(true)}
 
       <div className="flex relative">
         {toggle ? (
-          <AiOutlineClose
-            fontSize={28}
-            className=" text-gray-700 md:hidden cursor-pointer "
-            onClick={()=>setToggle(false)}
-          />
+          ""
         ) : (
           <HiMenuAlt4
           fontSize={28}
@@ -109,7 +106,7 @@ else{setActiveMenu(true)}
 
 
         { toggle && (
-          <ul style={{background:currentColor}} className=" z-[1000] fixed top-0 -right-2 p-3 w-[70vw] sm:w-[50vw] h-screen shadow-2xl md:hidden list-none
+          <ul style={{background:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.8)" }} className=" z-[1000] fixed top-0 -right-2 p-3 w-[70vw] sm:w-[50vw] h-screen shadow-2xl md:hidden list-none
            flex flex-col justify-start items-end rounded-md text-black animate-slideright" >
             <li className=" text-xl w-full my-2" >
               <AiOutlineClose onClick={()=>setToggle(false)} />
@@ -121,12 +118,12 @@ else{setActiveMenu(true)}
             <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}> 
             <Link onClick={()=>setToggle(false)} className=' flex flex-row gap-2 justify-center items-center' to={"/scan"} >
               <FiTarget/> Scan</Link></li>
-            <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}>
+            {/* <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}>
                <Link onClick={()=>setToggle(false)}  className=' flex flex-row gap-2 justify-center items-center' to={"All Targets"} >
                 <BiSearchAlt/> Targets</Link> </li>
             <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}> 
             <Link onClick={()=>setToggle(false)}  className=' flex flex-row gap-2 justify-center items-center' to={"Vulnerabilities"} >
-              <MdNotificationsActive/> Vunrabilities</Link> </li>
+              <MdNotificationsActive/> Vunrabilities</Link> </li> */}
             <li onClick={()=>{
             setToggle(false);
             setThemeSettings(true);
