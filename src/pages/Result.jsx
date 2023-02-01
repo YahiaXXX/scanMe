@@ -138,19 +138,11 @@ export default function DataTable() {
         let tech = res.data.stats.tech
         setDataChart(
           {
-            labels:[tech[0][0] || "", 
-            tech[1][0] || "", 
-            tech[2][0] || "", 
-            tech[3][0] || ""
-          ],
+            labels:Object.keys(tech),
             datasets: [
               {
                 label: 'Techno',
-                data:[tech[0][1] || 0 ,
-                tech[1][1] || 0,
-                tech[2][1] || 0,
-                tech[3][1] || 0,
-              ],
+                data:Object.values(tech),
                 borderColor: currentColor,
                 backgroundColor: currentColor,
               },
@@ -216,7 +208,7 @@ export default function DataTable() {
         </div>
          <div className=' flex flex-row gap-3 justify-center items-center' >
           <div className=' flex justify-center items-center flex-col gap-2 ' >
-            <p className='text-3xl font-semibold' >HTTP</p>
+            <p className='text-3xl font-semibold' >HTTPS</p>
             <p>{http[0]}</p>
           </div>
           <div style={{background:currentColor}} className=' h-full w-[1px] '  ></div>
