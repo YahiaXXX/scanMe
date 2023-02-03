@@ -172,6 +172,11 @@ export default function Risks() {
 
 useEffect(()=>{
   getResult()
+  let fourMinutes = 1000 * 20   
+
+    let interval =  setTimeout(()=> {
+       getResult()
+    }, fourMinutes)
   },[])
   return (
     <>

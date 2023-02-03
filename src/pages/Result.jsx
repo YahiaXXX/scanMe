@@ -161,8 +161,15 @@ export default function DataTable() {
   useEffect(()=>{
     
     getResult()
+    let fourMinutes = 1000 * 20   
+
+    let interval =  setTimeout(()=> {
+       getResult()
+    }, fourMinutes)
 
     },[])
+
+    
 
 
   const [options,setOptions] = useState({
