@@ -78,7 +78,7 @@ const columns = [
 },
   { field: 'time', headerName: 'Time', width: 150,headerClassName: 'super-app-theme--header' },
   { field: 'scheme', headerName: 'Schema', width: 145,headerClassName: 'super-app-theme--header' },
-  { field: 'webserver', headerName: 'Web Server', width: 130,headerClassName: 'super-app-theme--header' },
+  { field: 'webserver', headerName: 'Web Server', width: 200,headerClassName: 'super-app-theme--header' },
 //   {field: 'details', headerName: 'Details', width: 130,headerClassName: 'super-app-theme--header',
 //   renderCell: (params) => {
 //     return (
@@ -124,7 +124,7 @@ export default function DataTable() {
      }, 0) / dataServer.length).toFixed(3)
 
    
-  const getResult= async () => {
+     const getResult= async () => {
       setLoading(true) 
       let res = await axios.get(url,{headers:{
         authorization:`Bearer ${authTokens.access}`
@@ -132,7 +132,7 @@ export default function DataTable() {
     console.log(res)
       if(res.status===200||res.status===201){
 
-        setLoading(false)
+        
         setDataServer(res.data.data)
         setHttp([res.data.stats.https_number,res.data.stats.http_number])
         let tech = res.data.stats.tech
@@ -150,6 +150,7 @@ export default function DataTable() {
           }
         )
         
+        setLoading(false)
       }
       else{
         console.log("error load")
@@ -158,8 +159,11 @@ export default function DataTable() {
   }
 
   useEffect(()=>{
+    
     getResult()
+
     },[])
+
 
   const [options,setOptions] = useState({
     indexAxis: 'y',
