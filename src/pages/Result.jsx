@@ -48,10 +48,10 @@ const columns = [
   )
  
 },
-  { field: 'url', headerName: 'URL', width: 300,headerClassName: 'super-app-theme--header' },
+  { field: 'url', headerName: 'Url', width: 300,headerClassName: 'super-app-theme--header' },
   { field: 'host', headerName: 'Host', width: 150,headerClassName: 'super-app-theme--header',
   renderCell:(param)=>(
-    <p className=' font-semibold' >
+    <p className='' >
       {param.formattedValue}
 
     </p>
@@ -243,25 +243,37 @@ export default function DataTable() {
         pageSize={30}
         rowsPerPageOptions={[30]}
         onCellClick={handleOnCellClick}
-        getRowClassName={(params) => `super-app-theme--${(params.id)%2}`}
+        getCellClassName={(param)=>`${ param.field==="id" ? "idType"    : ""   }`}
         sx={{
-          boxShadow: 2,
-          '& .super-app-theme--header': {
-            backgroundColor: hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
-            color:"white",
+          background:"rgba(243,243,243,0.2)",
+          
+          '.MuiDataGrid-columnSeparator': {
+            display: 'none',
+          },
+          '&.MuiDataGrid-root': {
+            border: 'none',
+          },
+          "& .super-app-theme--header": {
+            border:"none",
+            fontWeight:900,
+            color:"black",
+            fontSize:"15px",
+            fontFamily:"unset"
             
-
+            // backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
+            
+            // color: "white",
           },
-          '& .super-app-theme--0': {
-            backgroundColor:"rgba(228,234,239,0.5)",
-          },
-          '& .super-app-theme--1': {
-            backgroundColor:"rgba(228,234,239,0.2)",
-          },
-          '& .MuiDataGrid-cell:hover': {
+          // "& .super-app-theme--0": {
+          //   backgroundColor: "rgba(228,234,239,0.5)",
+          // },
+          // "& .super-app-theme--1": {
+          //   backgroundColor: "rgba(228,234,239,0.2)",
+          // },
+          "& .idType": {
             color: currentColor,
           },
-          
+
         }}
       />   
     </div>

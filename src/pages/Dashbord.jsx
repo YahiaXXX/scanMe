@@ -17,22 +17,23 @@ import { Link } from "react-router-dom";
 ChartJs.register(Tooltip, Title, ArcElement, Legend);
 
 const columns = [
-  {
-    field: "id",
-    headerName: "ID",
-    width: 300,
-    headerClassName: "super-app-theme--header ",
-    renderCell: (params) => (
-      <div className=" font-semibold">{params.formattedValue}</div>
-    ),
-  },
+  
   {
     field: "url",
-    headerName: "Domain URL",
+    headerName: "Domain Url",
     width: 400,
     headerClassName: "super-app-theme--header",
     renderCell: (param) => (
-      <div className=" font-semibold text-black ">{param.formattedValue}</div>
+      <div className="">{param.formattedValue}</div>
+    ),
+  },
+  {
+    field: "scan_type",
+    headerName: "Scan Type",
+    width: 300,
+    headerClassName: "super-app-theme--header ",
+    renderCell: (params) => (
+      <div className=" font-poppins">{params.formattedValue}</div>
     ),
   },
   {
@@ -45,18 +46,18 @@ const columns = [
       const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
       const formattedDate = date.toLocaleDateString('en-US', options);
       return (
-      <div className=" font-semibold text-black ">{formattedDate}</div>
+      <div className=" text-black ">{formattedDate}</div>
     )
   },
   },
 
   {
     field: "get_all",
-    headerName: "Get all",
+    headerName: "Get All Subdomains",
     width: 310,
     headerClassName: "super-app-theme--header",
-    renderCell: (param) => (
-      <div className=" px-1 py-1 bg-green-600 font-semibold bg-opacity-80  rounded-md border-color border-[1px]">
+    renderCell: (param) =>(
+      <div className=" text-white px-1 py-1 bg-green-600 bg-opacity-80  rounded-3xl">
         <BsCheckLg/> 
       </div>
     ),
@@ -234,8 +235,8 @@ const getWord = (str)=>{
           data: [res.data.stats.self_targets_number, 
             50-res.data.stats.self_targets_number],
           backgroundColor: [
-            '#1A97F5',
-            '#03C9D7',
+            currentColor,
+            "gray",
           ],
           hoverOffset: 4
         }]
@@ -410,20 +411,38 @@ const getWord = (str)=>{
               height={300}
               rowsPerPageOptions={[30]}
               getRowClassName={(params) => `super-app-theme--${params.id % 2}`}
-              onCellClick={() => {}}
+              onCellClick={(param)=>console.log(param)}
+              getCellClassName={(param)=>`${ param.field==="url" ? "urlType"    : ""   }`}
               sx={{
+                background:"rgba(243,243,243,0.2)",
                 boxShadow: 2,
+                '.MuiDataGrid-columnSeparator': {
+                  display: 'none',
+                },
+                '&.MuiDataGrid-root': {
+                  border: 'none',
+                },
                 "& .super-app-theme--header": {
-                  backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
+                  border:"none",
+                  fontWeight:900,
+                  color:"black",
+                  fontSize:"15px",
+                  fontFamily:"unset"
                   
-                  color: "white",
+                  // backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
+                  
+                  // color: "white",
                 },
-                "& .super-app-theme--0": {
-                  backgroundColor: "rgba(228,234,239,0.5)",
+                // "& .super-app-theme--0": {
+                //   backgroundColor: "rgba(228,234,239,0.5)",
+                // },
+                // "& .super-app-theme--1": {
+                //   backgroundColor: "rgba(228,234,239,0.2)",
+                // },
+                "& .urlType": {
+                  color: currentColor,
                 },
-                "& .super-app-theme--1": {
-                  backgroundColor: "rgba(228,234,239,0.2)",
-                },
+
               }}
             />
           </div>

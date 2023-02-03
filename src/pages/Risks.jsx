@@ -10,8 +10,10 @@ import { Header, Popper } from "../components";
 import { Doughnut } from "react-chartjs-2";
 import { ImEarth } from "react-icons/im";
 import hexToRgba from "hex-to-rgba";
+import { Spinner } from '../components/spinner/Spinner';
 import { Chart as ChartJs, Tooltip, Title, ArcElement, Legend } from "chart.js";
 ChartJs.register(Tooltip, Title, ArcElement, Legend);
+
 
 const options = {
   plugins: {
@@ -172,7 +174,8 @@ useEffect(()=>{
   getResult()
   },[])
   return (
-    <div className=" py-10 md:mt-20 mt-10">
+    <>
+    { loading  ? <div className=' flex justify-center items-center w-full h-screen' > <Spinner color={currentColor} /></div>     : <div className=" py-10 md:mt-20 mt-10">
       <div className=" flex md:flex-row md:gap-0 gap-4 flex-col ss:justify-around justify-center ml-0 items-center">
         <div className="md:w-[30%] w-[100%] justify-center items-center flex-col flex gap-4">
           <div className=" flex justify-center items-center flex-col gap-3 rounded-xl bg-opacity-30 bg-slate-50 backdrop-blur-md hover:bg-opacity-50 hover:border-color hover:border-[1px] cursor-pointer drop-shadow-lg h-[200px] md:w-[80%] w-[70%] ">
@@ -184,13 +187,14 @@ useEffect(()=>{
             </div>
             <div className=" flex flex-col gap-4 justify-center items-center">
               <p className=" text-[20px] text-gray-600 font-semibold">
-                Domain URL: <span> {urls} </span>
+                Domain URL:
               </p>
-              <p className=" font-semibold text-[20px]">
+              <p className=" text-black font-semibold text-2xl" >{urls}</p>
+              {/* <p className=" font-semibold text-[20px]">
                 <span className=" text-black">
                   Subdomain: <span></span>
                 </span>
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -232,24 +236,44 @@ useEffect(()=>{
             rowsPerPageOptions={[50]}
             getRowClassName={(params) => `super-app-theme--${params.id % 2}`}
             sx={{
-              boxShadow: 2,
+              background:"rgba(243,243,243,0.2)",
+              boxShadow:2,
+              
+              '.MuiDataGrid-columnSeparator': {
+                display: 'none',
+              },
+              '&.MuiDataGrid-root': {
+                border: 'none',
+              },
               "& .super-app-theme--header": {
-                backgroundColor: hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
-                color: "white",
+                border:"none",
+                fontWeight:900,
+                color:"black",
+                fontSize:"15px",
+                fontFamily:"unset"
+                
+                // backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
+                
+                // color: "white",
               },
-              "& .super-app-theme--0": {
-                backgroundColor: "rgba(228,234,239,0.5)",
-              },
-              "& .super-app-theme--1": {
-                backgroundColor: "rgba(228,234,239,0.2)",
-              },
-              '& .MuiDataGrid-cell:hover': {
+              // "& .super-app-theme--0": {
+              //   backgroundColor: "rgba(228,234,239,0.5)",
+              // },
+              // "& .super-app-theme--1": {
+              //   backgroundColor: "rgba(228,234,239,0.2)",
+              // },
+              "& .idType": {
                 color: currentColor,
               },
+    
             }}
           />
         </div>
       </div>
     </div>
+    
+    }
+    </>
+    
   );
 }

@@ -78,7 +78,7 @@ function Home() {
       className={`md:w-[60%] w-[100%] flex justify-center md:items-start items-center  z-[1] md:absolute flex-1 flex-col xl:px-0 sm:px-16 px-6`}
     >
       <div className="flex flex-row  justify-between  items-center w-full">
-        <h1 className=" flex-1 font-poppins font-semibold ss:leading-[100px] leading-[75px] ss:text-[50px] text-[32px] text-[#0A093D] dark:text-white ">
+        <h1 className=" flex-1 font-poppins font-semibold ss:leading-[90px] leading-[75px] ss:text-[50px] text-[32px] text-[#0A093D] dark:text-white ">
         Is your<br className="md:block hidden" /> web server's<br className="sm:block hidden" />
           <span className="text-[#0A093D] dark:text-gray-50 "> configuration secure? </span> <br />
           Find out for free.
@@ -89,7 +89,7 @@ function Home() {
 
 
 
-      <div className=' w-full flex md:flex-row flex-col md:gap-0 gap-2 justify-start items-center sm:mt-10 mt-5' >
+      <div className='w-full flex md:ml-10 ml-0 md:flex-row flex-col md:gap-0 gap-2 justify-start items-center sm:mt-10 mt-5' >
       <select onChange={(e)=>setScanType(e.target.value)} className=' sm:w-[40%] ss:w-[50%] w-[80%] h-full py-2 bg-slate-100 drop-shadow-sm outline-none cursor-pointer mr-2' name="" id="">
   <option className=' cursor-pointer' value="scan_all">Find Subdomains and Risks</option>
   <option className=' cursor-pointer' value="sub_finder">Find Subdomains Only</option>
@@ -149,8 +149,8 @@ function Home() {
     
     <div className='flex-1 md:flex hidden ' ></div>
 
-    <div className={` flex-[1.7] flex ${styles.flexCenter} md:my-0 my-10 relative`} >
-      <img src={currentMode==="light" ? hero :hero2 } alt="billing" className="w-[100%] h-[100%] relative" />
+    <div className={`flex-[1.5] flex ${styles.flexCenter} md:my-0 my-10 relative`} >
+      <img src={currentMode==="light" ? hero :hero2 } alt="billing" className="w-[100%] h-[90%] relative" />
       
     </div>
     
