@@ -10,14 +10,15 @@ export default AuthContext;
 
 
 export const AuthProvider = ({children}) => {
+    const baseUrl=process.env.REACT_APP_BASE_URL
     let [loginLoading,setLoginLoading] = useState(false)
     let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
     let [loading, setLoading] = useState(false)
     const [emailErr,setEmailErr]=useState(false)
     const [passwordErr,setPasswordErr]=useState(false)
-    const urlLogin ="http://64.227.128.246:8080/api/token/"
-    const urlRefresh = "http://64.227.128.246:8080/api/token/refresh/"
+    const urlLogin =`${baseUrl}/api/token/`
+    const urlRefresh = `${baseUrl}/api/token/refresh/`
 
     const validate=(email,password)=>{
         if (!validEmail.test(email)) {
@@ -35,6 +36,7 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (email,password)=> {
         setLoginLoading(true)
+        console.log(urlLogin)
         let res = await axios.post(urlLogin,
         {"email":email, "password":password}
         )

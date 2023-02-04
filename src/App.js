@@ -1,10 +1,8 @@
  import { useEffect,useState,useContext } from "react";
- import {Login,Register,Home,Result,Risks,Dashboard,Vulnerabilities,Subdomains} from "./pages"
+ import {Login,Register,Scan,Result,Risks,Dashboard,Vulnerabilities,Subdomains} from "./pages"
  import { Navbar,Sidebar,ThemeSettings } from "./components";
  import {Route,Routes} from "react-router-dom" 
  import { useStateContext } from "./contexts/ContextProvider";
-import { FiSettings } from "react-icons/fi";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import PrivateRoute from "./utils/PrivateRoute";
 import AuthContext from "./contexts/AuthContext";
 import Targets from "./pages/Targets";
@@ -57,7 +55,7 @@ import Targets from "./pages/Targets";
                   <Route path="/scan/risks/:id" element={<Risks />} />
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/home" element={<Dashboard />} />
-                  <Route path="/scan" element={<Home />} />
+                  <Route path="/scan" element={<Scan/>} />
                   <Route path="/All Targets" element={<Targets />} />
                   <Route path="/Vulnerabilities" element={<Vulnerabilities />} />
                   

@@ -11,10 +11,11 @@ import Spinner2 from "../components/spinner/Spinner2"
 
 
 function RegisterComponent() {
+  const baseUrl= process.env.REACT_APP_BASE_URL
   const [emailErr,setEmailErr]=useState(false);
   const [passwordErr,setPasswordErr]=useState(false);
   const [nameErr,setNameErr]=useState(false)
-  const url = "http://64.227.128.246:8080/users/signup/"
+  const url = `${baseUrl}/users/signup/`
   const [name,setName]=useState("");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");

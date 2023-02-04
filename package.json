@@ -16,6 +16,7 @@
     "axios": "^1.2.2",
     "chart.js": "^4.2.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
     "framer-motion": "^8.5.0",
     "hex-to-rgba": "^2.0.1",
     "jwt-decode": "^3.1.2",
@@ -36,8 +37,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

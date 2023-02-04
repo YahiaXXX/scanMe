@@ -115,6 +115,7 @@ const columns = [
 ];
 
 export default function Risks() {
+  const baseUrl= process.env.REACT_APP_BASE_URL
   const { currentColor,urls } = useStateContext();
   const data={
     labels: ["info","low","medium", "high"],
@@ -130,7 +131,7 @@ export default function Risks() {
     ],
   }
   const {id} = useParams()
-  const url =`http://64.227.128.246:8080/scanner/target/${id}/risks/`
+  const url =`${baseUrl}/scanner/target/${id}/risks/`
   const [dataServer,setDataServer]=useState([]);
   const [loading,setLoading]=useState(false)
   const [dataPie,setDataPie]=useState({
@@ -256,17 +257,7 @@ useEffect(()=>{
                 color:"black",
                 fontSize:"15px",
                 fontFamily:"unset"
-                
-                // backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
-                
-                // color: "white",
               },
-              // "& .super-app-theme--0": {
-              //   backgroundColor: "rgba(228,234,239,0.5)",
-              // },
-              // "& .super-app-theme--1": {
-              //   backgroundColor: "rgba(228,234,239,0.2)",
-              // },
               "& .idType": {
                 color: currentColor,
               },

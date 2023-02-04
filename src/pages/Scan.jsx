@@ -13,9 +13,10 @@ import {BsArrowRightCircle} from "react-icons/bs"
 import {motion} from "framer-motion"
 import { validLink,validIp } from '../components/Regex';
 
-function Home() {
-  const target ="http://64.227.128.246:8080/scanner/target/"
-  const check = "http://64.227.128.246:8080/api/token/verify/"
+function Scan() {
+  const baseUrl=process.env.REACT_APP_BASE_URL
+  const target =`${baseUrl}/scanner/target/`
+  const check = `${baseUrl}/api/token/verify/`
    let {authTokens, logoutUser} = useContext(AuthContext);
   const [loading,setLoading]=useState(false)
   const [url,setUrl]=useState("")
@@ -29,13 +30,10 @@ function Home() {
     console.log("res check",res)
   }
  
-  //  useEffect(()=>{
-  //   console.log(validLink.test("www.esi.dz"));
-  //   console.log(validIp.test("64.227.128.246"));
+   useEffect(()=>{
+     console.log(process.env.REACT_APP_BASE_URL)    
 
-    
-
-  //   },[])
+    },[])
 
   const handleScan= async () =>{
 
@@ -159,4 +157,4 @@ function Home() {
  
 }
 
-export default Home
+export default Scan

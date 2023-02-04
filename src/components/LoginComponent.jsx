@@ -10,7 +10,6 @@ import Spinner2 from "./spinner/Spinner2";
 function LoginComponent() {
 
   let {loginUser,loginLoading} = useContext(AuthContext);
-    const url ="http://64.227.128.246:8080/api/token/"
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [remember, setRemember] = useState(false);

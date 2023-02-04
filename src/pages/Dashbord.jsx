@@ -196,8 +196,9 @@ const getWord = (str)=>{
   return res
 
 }
+  const baseUrl = process.env.REACT_APP_BASE_URL
   const {authTokens} = useContext(AuthContext)
-  const homeUrl="http://64.227.128.246:8080/scanner/my_home"
+  const homeUrl=`${baseUrl}/scanner/my_home`
   let bool = screenSize > 700;
   const [gaugePer,setGaugePer]=useState(
     {
@@ -368,27 +369,7 @@ const getWord = (str)=>{
           </div>
           <div className=" sm:w-[40%] w-[90%] flex justify-center items-center gap-3 rounded-xl bg-opacity-30 backdrop-blur-md bg-slate-50 hover:bg-opacity-50 hover:border-color hover:border-[1px] cursor-pointer drop-shadow-lg h-[300px] ">
           <Doughnut style={{height:"70%"}} data={dataDoghnut} options={optionsConf} plugins={[gaugePer]} />
-            
-          {/* <PieChart  width={bool ? 500 : 250} height={300} >
-        <Pie
-          data={DoghnutData}
-          cx={ bool ? 240  : 135 }
-          cy={160}
-          startAngle={180}
-          endAngle={0}
-          innerRadius={50}
-          outerRadius={100}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {DoghnutData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart> */}
-
-          </div>
+            </div>
         </div>
       </div>
 
@@ -428,17 +409,8 @@ const getWord = (str)=>{
                   color:"black",
                   fontSize:"15px",
                   fontFamily:"unset"
-                  
-                  // backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
-                  
-                  // color: "white",
                 },
-                // "& .super-app-theme--0": {
-                //   backgroundColor: "rgba(228,234,239,0.5)",
-                // },
-                // "& .super-app-theme--1": {
-                //   backgroundColor: "rgba(228,234,239,0.2)",
-                // },
+                
                 "& .urlType": {
                   color: currentColor,
                 },

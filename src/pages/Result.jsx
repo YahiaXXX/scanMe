@@ -91,9 +91,9 @@ const columns = [
 ]
 
 export default function DataTable() {
-  
+  const baseUrl= process.env.REACT_APP_BASE_URL
   const {id} = useParams()
-  const url =`http://64.227.128.246:8080/scanner/target/${id}/subdomains/`
+  const url =`${baseUrl}/scanner/target/${id}/subdomains/`
   const navigate=useNavigate();
   const {currentColor,setUrls} = useStateContext();
   const {authTokens} =useContext(AuthContext)
@@ -270,17 +270,8 @@ export default function DataTable() {
             color:"black",
             fontSize:"15px",
             fontFamily:"unset"
-            
-            // backgroundColor:hexToRgba(currentColor).slice(0, hexToRgba(currentColor).length - 2)+"0.9)",
-            
-            // color: "white",
           },
-          // "& .super-app-theme--0": {
-          //   backgroundColor: "rgba(228,234,239,0.5)",
-          // },
-          // "& .super-app-theme--1": {
-          //   backgroundColor: "rgba(228,234,239,0.2)",
-          // },
+         
           "& .idType": {
             color: currentColor,
           },

@@ -90,9 +90,9 @@ const columns = [
 ]
 
 export default function Subdomains() {
-  
+  const baseUrl= process.env.REACT_APP_BASE_URL
   const {id} = useParams()
-  const url =`http://64.227.128.246:8080/scanner/target/${id}/subdomains/`
+  const url =`${baseUrl}/scanner/target/${id}/subdomains/`
   const navigate=useNavigate();
   const {currentColor,setUrls} = useStateContext();
   const {authTokens} =useContext(AuthContext)
