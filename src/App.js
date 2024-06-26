@@ -1,11 +1,13 @@
- import { useEffect,useState,useContext } from "react";
- import {Login,Register,Scan,Result,Risks,Dashboard,Vulnerabilities,Subdomains} from "./pages"
- import { Navbar,Sidebar,ThemeSettings } from "./components";
- import {Route,Routes} from "react-router-dom" 
- import { useStateContext } from "./contexts/ContextProvider";
+import { useEffect,useState,useContext } from "react";
+import {Login,Register,Scan,Result,Risks,Dashboard,Vulnerabilities,Subdomains} from "./pages"
+import { Navbar,Sidebar,ThemeSettings } from "./components";
+import {Route,Routes} from "react-router-dom" 
+import { useStateContext } from "./contexts/ContextProvider";
 import PrivateRoute from "./utils/PrivateRoute";
 import AuthContext from "./contexts/AuthContext";
 import Targets from "./pages/Targets";
+
+
 
 
  
@@ -20,6 +22,10 @@ import Targets from "./pages/Targets";
     currentColor,
     currentMode,
   } = useStateContext();
+   
+
+
+
   return (
     <>
         <div className={` ${currentMode === "dark" ? "dark" : ""}`}>

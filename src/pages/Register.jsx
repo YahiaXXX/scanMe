@@ -16,7 +16,7 @@ function Register() {
        <RegisterComponent/>
      </div>
      
-     <Footer/>
+     
      
 
     

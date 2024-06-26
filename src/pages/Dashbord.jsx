@@ -2,7 +2,6 @@ import React,{useEffect,useContext,useState} from "react";
 import {BsCheckLg} from "react-icons/bs"
 import axios from "axios";
 import { Bar } from 'react-chartjs-2';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJs, Tooltip, Title, ArcElement, Legend } from "chart.js";
 import { useStateContext } from "../contexts/ContextProvider";
@@ -89,26 +88,7 @@ const optionsConf = {
 
 
 
-// const gaugeText={
-//   id:"gaugeText",
-//   beforeDatasetsDraw(chart,args,pluginsOptions){
-//     const {ctx,chartArea:{top,bottom,left,right,width,hight}} = chart;
-//    const xcor= chart.getDatasetMeta(0).data[0].x
-//    const ycor= chart.getDatasetMeta(0).data[0].y-30;
-//     ctx.save()
-//     ctx.fillStyle='black';
-//     ctx.textAlign='center'
-//     ctx.font='bold 30px sans-serif'
-//     ctx.fillText('text',xcor,ycor)
 
-//   }
-// }
-
-// const DoghnutData = [
-//   { name: 'Group A', value: 4 },
-//   { name: 'Group B', value: 20 },
-  
-// ];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export const Card = ({ text1, text2 }) => (

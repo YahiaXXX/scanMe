@@ -118,12 +118,6 @@ else{setActiveMenu(true)}
             <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}> 
             <Link onClick={()=>setToggle(false)} className=' flex flex-row gap-2 justify-center items-center' to={"/scan"} >
               <FiTarget/> Scan</Link></li>
-            {/* <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}>
-               <Link onClick={()=>setToggle(false)}  className=' flex flex-row gap-2 justify-center items-center' to={"All Targets"} >
-                <BiSearchAlt/> Targets</Link> </li>
-            <li className={` flex flex-row justify-center items-center gap-2 mx-4 cursor-pointer my-2 text-black text-lg`}> 
-            <Link onClick={()=>setToggle(false)}  className=' flex flex-row gap-2 justify-center items-center' to={"Vulnerabilities"} >
-              <MdNotificationsActive/> Vunrabilities</Link> </li> */}
             <li onClick={()=>{
             setToggle(false);
             setThemeSettings(true);
